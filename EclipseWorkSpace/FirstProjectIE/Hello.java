@@ -12,8 +12,7 @@ public class Hello {
 	 */
 	public static void main(String[] args) {
 		// Print hello
-		System.out.print("Hello");;
-
+		System.out.print("Hello Isabella");
 	}
 
 }
