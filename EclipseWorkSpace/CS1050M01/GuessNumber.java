@@ -25,6 +25,7 @@ public class GuessNumber
 //Math.random: returns "a pseudorandom double greater than or equal to 0.0 and less than 1.0."
 //Math (capitalized M) is a class which contains many basic mathematic methods
 //random is a method under the class Math.
+		//**!!Ended on M01L02 slides!!**
 
 		Scanner keyboardInput = new Scanner(System.in);
 		
