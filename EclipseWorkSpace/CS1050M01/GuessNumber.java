@@ -25,20 +25,23 @@ public class GuessNumber
 //Math.random: returns "a pseudorandom double greater than or equal to 0.0 and less than 1.0."
 //Math (capitalized M) is a class which contains many basic mathematic methods
 //random is a method under the class Math.
-		//**!!Ended on M01L02 slides!!**
+		//**!!Ended here in class on M01L02 slides!!**
 
 		Scanner keyboardInput = new Scanner(System.in);
 		
 		System.out.println("Guess a magic number between 0 and 100");
-
+//
 		int guess = -1;
+//the integer variable guess is assigned the value -1
 		while (guess != number)
+//so long as the integer "guess" does not equal the variable "number"
 		{
 
 			System.out.print("\nEnter your guess: ");
 			guess = keyboardInput.nextInt();
 
 			if (guess == number) 
+// == is equal to
 			{
 				System.out.println("Yes, the number is " + number);
 			}
