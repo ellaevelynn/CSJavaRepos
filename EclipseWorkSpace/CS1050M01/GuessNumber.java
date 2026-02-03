@@ -16,7 +16,8 @@ public class GuessNumber
 	{ //start of main
 		final int RANDOM_MULTIPLIER = 100;
 //final is declaring the constant type int
-//int declares the constnant as an integer and allocated the proper ammount of data 
+//final means that the information will stay constant and can't change
+//int declares the data type stored (values that do not include decimals)
 //constants are capitalized always (RANDOM_MULTIPLIER)
 // the constant RANDOM_MULTIPLIER is assigned to an integer set of values from 0 to 100
 		int number = (int) (Math.random() * RANDOM_MULTIPLIER) + 1;
@@ -24,7 +25,9 @@ public class GuessNumber
 //from this, the variable "number" is assigned the following:
 //Math.random: returns "a pseudorandom double greater than or equal to 0.0 and less than 1.0."
 //Math (capitalized M) is a class which contains many basic mathematic methods
-//random is a method under the class Math.
+//random is a method under the class Math. random result assigned between 0 and 1 multiplied by random multiplier and added to 1 
+// then declared as an integer to be able to fit back into the variable number without risk of an overflow.
+
 		//**!!Ended here in class on M01L02 slides!!**
 
 		Scanner keyboardInput = new Scanner(System.in);
