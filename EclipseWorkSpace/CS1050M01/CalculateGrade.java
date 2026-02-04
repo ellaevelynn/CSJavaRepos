@@ -18,15 +18,16 @@ public class CalculateGrade
 	double classQuizzGrade=88;
 	final double CLASS_PROJECT_WT =0.20;
 	double classProjectGrade=93;
-	
+	final double FINAL_DEMO= 0.20;
+	double finalDemo=93;
+// assigned each variable and constant for each grade section and the point obtained so far for each section
 	double pointsObtained= 
 			(classPartGrade*CLASS_PART_WT)
 			+ (classExploreGrade*CLASS_EXPLORE_WT)
 			+ (classQuizzGrade*CLASS_QUIZZ_WT)
-			+(classProjectGrade*CLASS_PROJECT_WT);
-	double gradeScorePercent = pointsObtained /(double)100;
-	System.out.println("Total Points Achieved: " + pointsObtained);
-	System.out.println("Current Score " + gradeScorePercent);
+			+(classProjectGrade*CLASS_PROJECT_WT)
+			+(finalDemo*FINAL_DEMO);
+	System.out.println("Your current grade percentage is " + pointsObtained + " percent.");
 	
 	}//end main
 
