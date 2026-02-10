@@ -12,12 +12,10 @@ public class BodyMassIndexActivity
 	public static void main(String[] args)
 	{
 		//Create constants and variables
-		//initializing variables and constants 
-
+		//initializing variables and constants
 		// constants
 		// factor formula in pounds
 		final int BMI_FACTOR_CONSTANT= 703;
-		
 		// Variables
 		//the user's weight 
 		double userWeight = 0;
@@ -25,7 +23,6 @@ public class BodyMassIndexActivity
 		double userHeightIn = 0;
 		 // The user's BMI
 		double userBmi = 0;
-
 		// Create a Scanner object for scanning input from keyboard
 		Scanner keyboardInput = new Scanner(System.in);
 		// Tell the user what the program will do.
