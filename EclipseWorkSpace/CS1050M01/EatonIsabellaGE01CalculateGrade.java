@@ -9,6 +9,7 @@ import java.util.Scanner; //import the scanner class for later use.
 
 public class EatonIsabellaGE01CalculateGrade
 { //start of class EatonIsabellaGE01CalculateGrade
+	
 	public static void main(String[] args)
 	{ //start of method "main"
 //initialize each constant (grade category weights) as a double.
@@ -49,11 +50,25 @@ public class EatonIsabellaGE01CalculateGrade
 			+ (classQuizzGrade*CLASS_QUIZZ_WT)
 			+(classProjectGrade*CLASS_PROJECT_WT)
 			+(finalDemo*FINAL_DEMO);
-	
 //print/display your resulting grade derived from the sum of points obtained input multiplied by its correlated weight.
 	System.out.println("Isabella E, your current grade is " + pointsObtained + " percent.");
 	//output:Isabella E, your current grade is 90.65 percent.
-	keyboardInput.close(); 
+	
+//2/11 in class exercise, print letter grade 
+
+	if (pointsObtained >= 90)
+	{ System.out.println("Isabella E, you have an A");}
+	else if (pointsObtained >= 80)
+	{ System.out.println("Isabella E, you have a B");}
+	else if (pointsObtained >= 70)
+	{ System.out.println("Isabella E, you have a C");}
+	else if (pointsObtained >= 60)
+	{ System.out.println("Isabella E, you have a D");}
+	else if (pointsObtained >= 0)
+	{ System.out.println("Isabella E, you have a F");}
+	
+	
+	 keyboardInput.close(); 
 //close the scanner class to prevent data warning message.
 //NOTE: you will have to restart the code any time you edit your grade as the scanner class will have to be initialized again.
 	}//end main

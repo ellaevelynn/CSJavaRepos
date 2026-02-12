@@ -39,10 +39,17 @@ public class BodyMassIndexActivity
 		userHeightIn = keyboardInput.nextInt();
 		
 		// Calculate the user's body mass index.
-		userBmi = (userWeight/ (userHeightIn * userHeightIn)) * BMI_FACTOR_CONSTANT ;
+		userBmi = (userWeight/ (Math.pow(userHeightIn,2))) * BMI_FACTOR_CONSTANT ;
 
 		// Display the user's BMI.
-		System.out.printf("Your body mass index (BMI) is %f", userBmi);
-
+		System.out.printf("Your body mass index (BMI) is %f", userBmi, ".");
+		if (userBmi < 18.50)
+		{System.out.print(" You are underweight");}
+		else if (userBmi >= 18.50)
+		{System.out.print(" You are a healthy weight");}
+		else if (userBmi >= 25.0)
+		{System.out.print(" You are overweight");}
+		else if (userBmi >= 30.00)
+		{System.out.print(" You are obese");}
 	}
 }
