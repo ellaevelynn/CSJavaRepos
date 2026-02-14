@@ -42,7 +42,7 @@ public class BodyMassIndexActivity
 		userBmi = (userWeight/ (Math.pow(userHeightIn,2))) * BMI_FACTOR_CONSTANT ;
 
 		// Display the user's BMI.
-		System.out.printf("Your body mass index (BMI) is %f", userBmi, ".");
+		System.out.printf("Your body mass index (BMI) is %f", userBmi );
 		if (userBmi < 18.50)
 		{System.out.print(" You are underweight");}
 		else if (userBmi >= 18.50)
