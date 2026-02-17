@@ -22,7 +22,7 @@ public class IEMGE02MathCharsStrings
 		 String adjectiveAny="adjective";
 		 String placeAny="place";
 		 String favoriteLetter="A";
-		 
+		
 		// incorperate scanner so that keyboard inputs can be used 
 		 Scanner input = new Scanner(System.in); //call scanner to use keyboard inputs 
 		 
@@ -33,8 +33,7 @@ public class IEMGE02MathCharsStrings
 		 System.out.println("Enter a last name:");
 		 lastName = input.next();
 		//extract first character of the name and store it as a char 
-		 char lastNameLastInitial = input.next().charAt(0);
-		 char lastName=lastNameLastInitial;
+		 char lastInitial = lastName.charAt(0);
 		 
 		 System.out.println("Enter a noun (a person, place or thing):");
 		 nounAny = input.next();
@@ -49,9 +48,9 @@ public class IEMGE02MathCharsStrings
 		 
 		
 		//Print the final completed  MadLib 
-		 String summary = "Once upon a time " + firstName + " " + lastName + "was"
-		 		+ ingVerb+" through the "+ placeAny+ "with a "+ nounAny+". "+ "It was a very "
-				 +adjectiveAny+ "day. Their favorite letter was "+ favoriteLetter +".";
+		 String summary = "Once upon a time " + firstName + " " + lastInitial + " was "
+		 		+ ingVerb+" through the "+ placeAny+ " with a "+ nounAny+". "+ "It was a very "
+				 +adjectiveAny+ " day. Their favorite letter was "+ favoriteLetter +".";
 		 System.out.println(summary);
 		 input.close();	
 
