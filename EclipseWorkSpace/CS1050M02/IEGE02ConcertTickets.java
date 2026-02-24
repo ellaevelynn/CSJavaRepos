@@ -5,16 +5,16 @@
 /**
  * 
  */
+import java.util.Scanner;
 public class IEGE02ConcertTickets
 {
-
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args)
 	{
-		// TODO Auto-generated method stub
-
+	final double positiveValue= 1.0;	
+	while (positiveValue <=0.0)
+	{
+		System.out.print("Enter your weight, in pounds: ");
+		positiveValue = keyboardInput.nextInt();
 	}
-
+	}
 }

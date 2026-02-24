@@ -1,18 +1,21 @@
-/**
- * 
+/*
+ *  Name: Isabella Eaton
+ *  Class: CS1050-004 (T/TH)
+ *  Description: Guided Exploration 02     
+ *  The program will produce a Mad-lib given the inputs you provide.
  */
 
-/** This program creates a short Mad Lib story 
- */
 import java.util.Scanner; //allows scanner to be used in program for keyboard input
-public class IEMGE02MathCharsStrings
+public class IEMGE02MathCharsStrings// Fulfills GE02 Requirement #1
 {// start class
 
 	public static void main(String[] args)
 	{// start main
 		// TODO Auto-generated method stub
 		// declare and initialize string variables that will later be edited when your program is ran.
-		//string variables are used for words and assigned content is enclosed in ""
+		//(7a)string variables are used for full words or sentences and assigned content is enclosed in ""
+		//(7b) read in a string by declaring and initializing the string variable.
+		// Fulfills GE02 Requirement #2
 		 String firstName="name";
 		 String lastName ="last";
 		 String nounAny= "noun";
@@ -32,12 +35,6 @@ public class IEMGE02MathCharsStrings
 		 System.out.println("Enter a last name:");
 		 lastName = input.next();
 		 //entered: Shrestha
-		 
-		//extract first character of the last name and store it as a char 
-		 char lastInitial = lastName.charAt(0);
-		//char data types assigns numerical values to each letter input in an item.
-		 //char data type content is encased in a '' when assigning.
-		 
 		 System.out.println("Enter a noun (a person, place or thing):");
 		 nounAny = input.next();
 		 // Entered: burrito
@@ -54,11 +51,21 @@ public class IEMGE02MathCharsStrings
 		 favoriteLetter = input.next();
 		 // entered: Q
 		 
-		
-		//Print the final completed  MadLib 
+		//extract first character of the last name and store it as a char 
+		//fulfills requirement #3
+		//fulfills requirement #4
+		 char lastInitial = lastName.charAt(0);
+		//(7a)char data types assigns numerical values to each letter input in an item.
+		//char data type content is encased in a '' when assigning.
+		//(7b) read in a char by declaring and initializing the char variable.
+		//(7c) .charAt(0) reads and identifies the character located at the beginning of the lastName string.
+		//fulfills requirement #5.
+		//filfills requirement #6.
+		//Print the final completed  MadLib.
 		 String summary = "Once upon a time " + lastInitial + " " + lastName + " was "
 		 		+ ingVerb+" through the "+ placeAny+ " with a "+ nounAny+". "+ "It was a very "
 				 +adjectiveAny+ " day. Their favorite letter was "+ favoriteLetter +".";
+		 //using the + is a way of practicing string concatenation. This combines strings with additional strings that are not defined as variables anywhere other than the summary.
 		 System.out.println(summary);
 		 //output: Once upon a time, Sayuj S was sitting through the Olympics with a burrito. It was a very funny day. Their favorite letter was Q.”
 		 input.close();	//closes keyboard input to prevent data leak warning
