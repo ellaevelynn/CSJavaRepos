@@ -4,17 +4,15 @@
 
 /** This program creates a short Mad Lib story 
  */
-import java.util.Scanner; //allows scanner to be used in program
+import java.util.Scanner; //allows scanner to be used in program for keyboard input
 public class IEMGE02MathCharsStrings
-{
+{// start class
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args)
-	{
+	{// start main
 		// TODO Auto-generated method stub
-		// declare and initialize string variables that will later be edited when your program is ran
+		// declare and initialize string variables that will later be edited when your program is ran.
+		//string variables are used for words and assigned content is enclosed in ""
 		 String firstName="name";
 		 String lastName ="last";
 		 String nounAny= "noun";
@@ -30,30 +28,41 @@ public class IEMGE02MathCharsStrings
 		 System.out.println("Let's create a MadLib!");
 		 System.out.println("Enter a first name:");
 		 firstName = input.next();
+		 //entered: Sayuj
 		 System.out.println("Enter a last name:");
 		 lastName = input.next();
-		//extract first character of the name and store it as a char 
+		 //entered: Shrestha
+		 
+		//extract first character of the last name and store it as a char 
 		 char lastInitial = lastName.charAt(0);
+		//char data types assigns numerical values to each letter input in an item.
+		 //char data type content is encased in a '' when assigning.
 		 
 		 System.out.println("Enter a noun (a person, place or thing):");
 		 nounAny = input.next();
+		 // Entered: burrito
 		 System.out.println("Enter a verb (action word) ending in -ing:");
 		 ingVerb = input.next();
+		 // entered: sitting
 		 System.out.println("Enter an adjective (a descriptive word):");
 		 adjectiveAny = input.next();
+		 //entered: funny
 		 System.out.println("Enter a place:");
 		 placeAny = input.next();
+		 //entered: Olympics
 		 System.out.println("Enter your favorite letter:");
 		 favoriteLetter = input.next();
+		 // entered: Q
 		 
 		
 		//Print the final completed  MadLib 
-		 String summary = "Once upon a time " + firstName + " " + lastInitial + " was "
+		 String summary = "Once upon a time " + lastInitial + " " + lastName + " was "
 		 		+ ingVerb+" through the "+ placeAny+ " with a "+ nounAny+". "+ "It was a very "
 				 +adjectiveAny+ " day. Their favorite letter was "+ favoriteLetter +".";
 		 System.out.println(summary);
-		 input.close();	
+		 //output: Once upon a time, Sayuj S was sitting through the Olympics with a burrito. It was a very funny day. Their favorite letter was Q.”
+		 input.close();	//closes keyboard input to prevent data leak warning
 
-	}
+	}//end main
 
-}
+}//end class
