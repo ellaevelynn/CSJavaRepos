@@ -31,6 +31,7 @@ public class EatonIsabellaGE01CalculateGrade
 //create the scanner object and assign to the variable keyboardInput
 //read user input for points obtained in each grading category and assign the user input to the correct variable for each entry;
 // (the user is asked to enter points obtained for each grading category)
+	
 	Scanner keyboardInput = new Scanner(System.in);
 	System.out.print("\nEnter your score for class participation: ");
 	classPartGrade = keyboardInput.nextInt();// score entered: 95

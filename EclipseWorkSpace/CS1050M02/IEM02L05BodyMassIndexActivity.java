@@ -9,7 +9,7 @@
 // ADD CODE to import Scanner class
 import java.util.Scanner;
 
-public class BodyMassIndexActivity
+public class IEM02L05BodyMassIndexActivity
 {
 
 	public static void main(String[] args)

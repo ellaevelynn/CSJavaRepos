@@ -40,8 +40,8 @@ public class IESubtractionQuiz
     int answer = input.nextInt();
 
     // 4. Grade the answer and display the result
-    if (number1 - number2 == answer)
-      System.out.println("You are correct!");
+    if (number1 - number2 == answer) {
+      System.out.println("You are correct!");}
     else {
       System.out.println("Your answer is wrong.");
       System.out.println(number1 + " - " + number2 + 
