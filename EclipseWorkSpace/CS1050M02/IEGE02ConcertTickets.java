@@ -20,7 +20,7 @@ public class IEGE02ConcertTickets
 		//step 2: make sure seating assignments are capitalized.
 		//step 4" after section character is read and verified, display section information
 		if (seatingAssignment=='f') {
-		seatingAssignment=Character.toUpperCase('F');
+		seatingAssignment=Character.toUpperCase(seatingAssignment);
 		System.out.println("Selected Front Section");
 		}
 		else if (seatingAssignment=='c') {

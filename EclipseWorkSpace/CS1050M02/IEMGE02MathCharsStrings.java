@@ -22,7 +22,7 @@ public class IEMGE02MathCharsStrings// Fulfills GE02 Requirement #1
 		 String ingVerb="verb";
 		 String adjectiveAny="adjective";
 		 String placeAny="place";
-		 String favoriteLetter="A";
+		char favoriteLetter='A';
 		
 		// incorperate scanner so that keyboard inputs can be used 
 		 Scanner input = new Scanner(System.in); //call scanner to use keyboard inputs 
