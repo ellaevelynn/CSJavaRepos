@@ -4,7 +4,6 @@ public class IEM03L011Login
 {
 	public static void main(String[] args)
 	{
-	//scenario 1: user puts in the correct user name and correct password 
 		//storing correct use name and password as strings
 		final String CORRECT_USERNAME = "Test";
 		final String CORRECT_PASSWORD = "p@$$";
