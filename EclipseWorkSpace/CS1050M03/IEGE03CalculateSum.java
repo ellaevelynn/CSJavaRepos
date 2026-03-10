@@ -14,17 +14,20 @@ public class IEGE03CalculateSum
 	double numberOne=input.nextDouble();
 	System.out.println("Please enter another number");
 	double numberTwo=input.nextDouble();
-	final double sumOfMaxValues=sum(Max(numberOne,numberTwo));
+	final double sumOfMaxValues=SumMax(numberOne,numberTwo);
 	}//end main
-	public static double Max (double numberOne, double numberTwo) {
-	double result;
-
+	public static double CalculateSum (double numberOne, double numberTwo) {
+	double maxValue;
 	if (numberOne > numberTwo) {
-	      result = numberOne;
+	      maxValue = numberOne;
 	    }
 	    else  { 
-	      result = numberTwo;
+	      maxValue = numberTwo;
 	   }
+	int loopCounter=1;
+	while (loopCounter<= maxValue) {
+		
+	}
 	    return result; // 
 	}//end max
 	
