@@ -14,22 +14,31 @@ public class IEGE03CalculateSum
 	double numberOne=input.nextDouble();
 	System.out.println("Please enter another number");
 	double numberTwo=input.nextDouble();
-	final double sumOfMaxValues=SumMax(numberOne,numberTwo);
+	double maxValue=CalculateMaxValue(numberOne,numberTwo);
+	double totalSum=CalculateSum(maxValue);
+	System.out.println("The sum of the maximum value "+maxValue+"is "+ totalSum);
 	}//end main
-	public static double CalculateSum (double numberOne, double numberTwo) {
+	
+	
+	public static double CalculateMaxValue (double numberOne, double numberTwo) {
 	double maxValue;
+	//determine which is the maximum value
 	if (numberOne > numberTwo) {
 	      maxValue = numberOne;
 	    }
 	    else  { 
 	      maxValue = numberTwo;
 	   }
+	return maxValue;
+	} //end method one 
+	//method 2 calculate sum 
+	public static double CalculateSum (double maxValue) {
 	int loopCounter=1;
 	while (loopCounter<= maxValue) {
-		
+		maxValue= maxValue+loopCounter;
+		loopCounter++;
 	}
-	    return result; // 
-	}//end max
-	
+	    return maxValue; // 
+	}//end method
 	
 }//end class 
