@@ -11,34 +11,31 @@ public class IEGE03CalculateSum
 	{
 	Scanner input = new Scanner(System.in);
 	System.out.println("Please enter a number");
-	double numberOne=input.nextDouble();
+	int numberOne=input.nextInt();
 	System.out.println("Please enter another number");
-	double numberTwo=input.nextDouble();
-	double maxValue=CalculateMaxValue(numberOne,numberTwo);
-	double totalSum=CalculateSum(maxValue);
-	System.out.println("The sum of the maximum value "+maxValue+"is "+ totalSum);
-	}//end main
+	int numberTwo=input.nextInt();
+	System.out.print("the numbers you entered are "+numberOne+" and "+numberTwo);
+	//checking that the values were stored properly
+	int maximumValue=FindMax(numberOne,numberTwo);
+	System.out.print("the maximum value between the two numbers is " + maximumValue);
 	
-	
-	public static double CalculateMaxValue (double numberOne, double numberTwo) {
-	double maxValue;
-	//determine which is the maximum value
-	if (numberOne > numberTwo) {
-	      maxValue = numberOne;
-	    }
-	    else  { 
-	      maxValue = numberTwo;
-	   }
-	return maxValue;
-	} //end method one 
-	//method 2 calculate sum 
-	public static double CalculateSum (double maxValue) {
-	int loopCounter=1;
-	while (loopCounter<= maxValue) {
-		maxValue= maxValue+loopCounter;
-		loopCounter++;
+	//method one: determining the maximum value and replacing 
+	}//end main method
+	public static int FindMax(int numberOne,int numberTwo) {
+	int maximumValue=1;
+	if (numberOne>numberTwo) {
+		maximumValue=numberOne;
 	}
-	    return maxValue; // 
-	}//end method
+		else {
+			maximumValue=numberTwo;
+		}
+		return maximumValue;
+	}//end method one: finding max value
+
+	//method two: finding the sum of the maximum value 
+	public static int FindSum(int maximumValue) {
+	sum=
+		return sum;
+	}//end method 2 
 	
-}//end class 
+}//end class
