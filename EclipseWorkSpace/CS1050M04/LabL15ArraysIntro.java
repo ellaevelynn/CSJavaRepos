@@ -44,10 +44,11 @@ public class LabL15ArraysIntro
 	
 //Find the average of the final grades.
 	double averageGrade = sumGrades / numberStudents;
-	System.out.println("class average is " + averageGrade);
+	System.out.println("class average is " + averageGrade); //display class average 
+	}//end main
 //Create a method to display all names and grades of students that scored above the average.
 //Pass the two arrays to the method
+	
 
-	}//end main
-
+	
 }//end class
