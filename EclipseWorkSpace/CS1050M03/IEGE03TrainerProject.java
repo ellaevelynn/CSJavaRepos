@@ -20,10 +20,13 @@ public class IEGE03TrainerProject
 	
 	//display user story 2 
 	String questionPrompt="placeholder";
-	double athleteWeight=GetPositiveDouble(methodInput,"\n Enter athlete Weight");
-	double athleteHeight=GetPositiveDouble(methodInput,"\nEnter Athlete Height");
+	double athleteWeight=GetPositiveDouble(methodInput,"\n Enter athlete Weight in pounds: ");
+	double athleteHeight=GetPositiveDouble(methodInput,"\nEnter Athlete Height in inches: ");
 	System.out.println("Athlete information saved as:  " + athleteWeight + " lbs, " + athleteHeight + " inches.");
 	
+	//display user story 3
+	double athleteBmiValue=CalculateBMI(athleteWeight,athleteHeight);
+	System.out.println("The BMI of this Athlete is  "+athleteBmiValue);
 	}//end main
 	
 //User story 1: Method to display summary.
@@ -38,10 +41,10 @@ public class IEGE03TrainerProject
 			+ "25 to under 30: Overweight\n"
 			+ "30 or greater: Obese\n"
 				);
+}//end PrintSummary/user story 1 
 	
-}//end PrintSummary
 //User story 2: Method to Validate a Positive Double.
-	public static double GetPositiveDouble(java.util.Scanner methodInput, String questionPrompt){
+	public static double GetPositiveDouble(java.util.Scanner methodInput, String questionPrompt){//need to use java.util.Scanner instead of just Scanner 
 	double userDoubleInput=0;
 	boolean isValidDouble=false;
 	while (isValidDouble==false){
@@ -52,8 +55,13 @@ public class IEGE03TrainerProject
     }//end if statement
 	}//end while statement
 	return userDoubleInput;
-		
-		
-		
-	}//end method 2 
-	}//end class
+	}//end method 2 / user story 2
+
+//User story 3:
+	public static double CalculateBMI(double athleteWeight, double athleteHeight) {
+	final double BMI_FORMULA_CONSTANT=703;
+	double athleteBmiFormula=(athleteWeight/(Math.pow(athleteHeight,2)))* BMI_FORMULA_CONSTANT;
+	return Math.round(athleteBmiFormula);
+	}
+	
+}//end class
