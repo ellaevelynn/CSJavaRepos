@@ -17,7 +17,7 @@ public class IELabL15ArraysIntro
 	double[] finalGrades;// no memory stored yet or size of array
 		
 	//2. Declare an array called firstNames to hold Strings.
-		String[]firstNames;// no memory stored yet or size of array
+	String[]firstNames;// no memory stored yet or size of array
 		
 	//2. Ask the user how many student in the class
 	int numberStudents=0;
@@ -34,7 +34,6 @@ public class IELabL15ArraysIntro
 	
 	//getting averages from students (create a method L16 lab)
 	double finalGradeAverage=calculateAverage(finalGrades);
-	System.out.println("the class average for the final is: "+finalGradeAverage);
 	
 	//method to display students above average for the final 
 	displayAboveAverage(firstNames, finalGrades, finalGradeAverage);
@@ -62,19 +61,19 @@ public class IELabL15ArraysIntro
 	}
 	System.out.println("the sum of final grades is: "+sumFinalGrades );
 	double finalGradeAverage= (double)sumFinalGrades/finalGrades.length;
-	System.out.println(" the class average for final grades is: "+finalGradeAverage);
+	System.out.println(" the class average for final is: "+finalGradeAverage);
 	return finalGradeAverage;
 	}
 	
 	//7. Create a method to display all names and grades of students that scored above the average.
 		//Pass the two arrays to the method
 	public static void displayAboveAverage (String[] firstNames, double[] finalGrades, double finalGradeAverage) {
-		System.out.println("\nStudents who scored above the average:");
-	    for (int i = 0; i < finalGrades.length; i++) {
+	System.out.println("\nStudents who scored above the average:");
+	for (int i = 0; i < finalGrades.length; i++) {
 	        // Checking if the current student's grade is higher than the average
-	        if (finalGrades[i] > finalGradeAverage) {
-	            System.out.println(firstNames[i] + ": " + finalGrades[i]);
-	        }// end if statement
+	if (finalGrades[i] > finalGradeAverage) {
+	System.out.println(firstNames[i] + ": " + finalGrades[i]);
+	    }// end if statement
 	    }//end for loop
 	    }	//end method
 }//end class
