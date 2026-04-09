@@ -2,8 +2,8 @@
 /*
  *  Name: Isabella Eaton
  *  Class: CS1050-004 (T/TH)
- *  Description: Guided Exploration 03     
- *  The program will provide a summary of a BMI analysis program.
+ *  Description: GE03 
+ *  project team and athlete analysis
  */
 public class IEGE03TrainerProject
 
