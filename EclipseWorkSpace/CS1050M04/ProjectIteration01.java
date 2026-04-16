@@ -53,8 +53,9 @@ public class ProjectIteration01
 	findMaxIndex(athleteMHR,athleteFirstNames,athleteCount," has the highest max heart rate of: ");
 		//user story 10: list all the athletes above or equal to max HR (method called in user story 9 findMaxIndex)
 	
-	
-	//user story 11: calculate and display training HR (if user requests to).
+	//user story 11: calculate and display training HR (if user requests to (y)).
+	continueProgram(userInput,"\nDo you want to calculate the training heart rates? (y/n):");
+	userInput.close();
 	}//end main
 	
 	
@@ -192,11 +193,11 @@ public class ProjectIteration01
 		}
 		}
 		System.out.println(athleteFirstNames[maxIndex]+questionPrompt+maxValue);
-		listAboveOrEqual(maxValue,athleteFirstNames,athleteCount, "Athletes above or equal to MHR: ");
+	showAboveOrEqual(athleteCount, maxValue, athleteMHR, athleteFirstNames, "\nAthletes above or equal to MHR: ");
 	}//end method
 	
 	//method to list athletes above or equal to a value (user story 10)
-	public static void listAboveOrEqual(int athleteCount, double maxValue,double athleteMHR[], String athleteFirstNames[], String questionPrompt) {
+	public static void showAboveOrEqual(int athleteCount, double maxValue,double athleteMHR[], String athleteFirstNames[], String questionPrompt) {
 	System.out.println(questionPrompt);
 	for (int i=0;i<athleteCount;i++) {
 	if (athleteMHR[i]>=maxValue) {
@@ -205,7 +206,41 @@ public class ProjectIteration01
 	}//end for loop
 	}//end method
 	
+	//method to calculate training HR
+	public static void ContinueProgram (java.util.Scanner userInput, String questionPrompt, String athleteFirstNames[], double athleteMHR[], int athleteCount) {
+	System.out.print(questionPrompt);
+	char questionAnswer = getValidChar(userInput);
+	if(questionAnswer=='y') {
+	getTrainingHR(userInput,athleteFirstNames, athleteMHR, athleteCount);
+	}//end if 
+	else {
+	System.out.println("complete");
+	}//end else
+	}//end method
 	
+	//method to validate user char inputs (user story 11)
+	public static char getValidChar(java.util.Scanner userInput) {
+        char inputChar='z';
+        boolean charAcceptable=false;
+        while (charAcceptable==false) {
+            String input = userInput.next().toLowerCase();
+            inputChar = input.charAt(0);
+            if (input.length() == 1 && (inputChar == 'y' || inputChar == 'n')) {
+                charAcceptable=true; //exit loop
+            }//end if 
+            System.out.println("Invalid input. Please enter y or n");
+        }//end while loop
+        return inputChar;
+	}//end method
+	
+	//method to calculate training heart rate (user story 11)
+	public static void getTrainingHR(java.util.Scanner userInput, int athleteCount, String athleteFirstNames[], double athleteMHR[]) {
+	final int trainingPercentage= getPositiveInteger(userInput, "\nEnter a training percentage: ");
+	for (int i=0; i<athleteCount; i++) {
+	double trainingHR=trainingPercentage * athleteMHR[i];
+	System.out.println(athleteFirstNames[i] + " Training heart rate: "+ String.format("%.1f",trainingHR));
+	}
+	}//end method 
 	
 	
 }//end class
