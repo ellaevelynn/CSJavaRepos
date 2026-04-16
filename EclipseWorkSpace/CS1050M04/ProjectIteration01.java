@@ -59,7 +59,6 @@ public class ProjectIteration01
 	
 	
 	//method to display program overview (called in user story 1).
-	//testing:
 	public static void displayProgramOverview() {
 		System.out.println("-------- Program Overview ---------");
 		System.out.println("The trainer enters how many athletes are on the team.\n"
@@ -72,7 +71,7 @@ public class ProjectIteration01
 				+ "Calculates percentages of max heart rate for athlete training goal if needed.\n");
 	}//end method
 
-	//Method to validate integer input (called in user story 2,3).
+	//Method to validate input for an integer (called in user story 2,3).
 	public static int getPositiveInteger(java.util.Scanner userInput, String questionPrompt){//need to use java.util.Scanner instead of just Scanner 
 		System.out.print(questionPrompt);
 		int userIntInput=userInput.nextInt();
@@ -85,7 +84,7 @@ public class ProjectIteration01
 		}//end method 
 	
 	
-	//Method to validate double input (called in user story 3).
+	//Method to validate input for a double (called in user story 3).
 	public static double getPositiveDouble(java.util.Scanner userInput, String questionPrompt){
 		System.out.print(questionPrompt);
 		double userDoubleInput=userInput.nextDouble();
@@ -142,7 +141,7 @@ public class ProjectIteration01
 		} else {
 			bmiCategory = "Underweight";
 		} 
-		System.out.print("BMI category: " +bmiCategory);
+		System.out.println("BMI category: " +bmiCategory);
 	}//end method 
 	
 	//method to obtain BMI outliers (called in user story 7).
@@ -229,9 +228,10 @@ public class ProjectIteration01
             inputChar = input.charAt(0);
             if (input.length() == 1 && (inputChar == 'y' || inputChar == 'n')) {
                 charAcceptable=true; //exit loop
-            }//end if 
+            } else {
             System.out.println("Invalid input. Please enter y or n");
-        }//end while loop
+            }
+        }
         return inputChar;
 	}//end method
 	
