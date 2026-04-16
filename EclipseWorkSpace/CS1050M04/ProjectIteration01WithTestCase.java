@@ -2,7 +2,7 @@
 /*
  *  Name: Isabella Eaton
  *  Class: CS1050-004 (T/TH)
- *  Description: Project iteration01
+ *  Description: GE03 
  *  project team and athlete analysis
  */
 public class ProjectIteration01
@@ -29,7 +29,7 @@ public class ProjectIteration01
 		athleteMHR= new double[athleteCount];
 		
 	//user story 3: validate age, weight, and height.
-		enterAthleteData(userInput, athleteCount, athleteFirstNames, athleteBMI, athleteMHR);
+		getUserStats(userInput, athleteCount, athleteFirstNames, athleteBMI, athleteMHR);
 		//User story 4: calculate BMI (method created and called in getStatsmethod)
 		//User story 5: Calculate MHR (method created and called within getStats method)
 		
@@ -38,7 +38,8 @@ public class ProjectIteration01
 	for (int i=0; i<athleteCount;i++) {
 		System.out.println(athleteFirstNames[i]);
 		System.out.println("BMI: "+ String.format("%.1f", athleteBMI[i]));
-		getBMICategory(athleteBMI[i]);
+		String bmiCategory=getBMICategory(athleteBMI[i]);
+		System.out.println("Category: " +bmiCategory);
 		System.out.println("MHR: " +athleteMHR[i]);
 		}//end loop
 	
@@ -70,7 +71,7 @@ public class ProjectIteration01
 				+ "18.5 to under 30: Normal\n"
 				+ "30 or greater: High\n"
 				+ "Calculates percentages of max heart rate for athlete training goal if needed.\n");
-	}//end method
+	}//end method, return nothing to main 
 
 	//Method to validate integer input (called in user story 2,3).
 	public static int getPositiveInteger(java.util.Scanner userInput, String questionPrompt){//need to use java.util.Scanner instead of just Scanner 
@@ -80,36 +81,33 @@ public class ProjectIteration01
 		System.out.print("Error: value must be greater than 0.");
 		System.out.print(questionPrompt);
 		userIntInput = userInput.nextInt();
-		}
+		}//end while statement
 		return userIntInput;
 		}//end method 
 	
-	
 	//Method to validate double input (called in user story 3).
-	public static double getPositiveDouble(java.util.Scanner userInput, String questionPrompt){
+	public static double getPositiveDouble(java.util.Scanner userInput, String questionPrompt){//need to use java.util.Scanner instead of just Scanner 
 		System.out.print(questionPrompt);
 		double userDoubleInput=userInput.nextDouble();
 		while (userDoubleInput<=0.00){
 		System.out.print("Error: value must be greater than 0.00");
 		System.out.print(questionPrompt);
 		userDoubleInput = userInput.nextDouble();
-		}
+		}//end while statement
 		return userDoubleInput;
 		}//end method
 	
-	
-	
 	//validating athlete age, height, and weight (used to calculate BMI and MHR) (called in user story 3).
-	public static void enterAthleteData(java.util.Scanner userInput,int athleteCounter, String athleteFirstNames[], double athleteBMI[], double athleteMHR[]) {
+	public static void getUserStats(java.util.Scanner userInput,int athleteCounter, String athleteFirstNames[], double athleteBMI[], double athleteMHR[]) {
 		for (int i=0; i<athleteCounter;i++) {
 		System.out.print("\nEnter athlete's first name: ");
 		athleteFirstNames[i] = getAthleteNames(userInput);
-		int athleteAge=getPositiveInteger(userInput, "enter the age in years: ");
-		double athleteWeight=getPositiveDouble(userInput, "enter weight in pounds: ");
-		double athleteHeight=getPositiveDouble(userInput,"enter height in inches: ");
+		int athleteAge=getPositiveInteger(userInput, "enter the age in years:");
+		double athleteWeight=getPositiveDouble(userInput, "enter weight in pounds:");
+		double athleteHeight=getPositiveDouble(userInput,"enter height in inches");
 		athleteBMI[i]=getAthleteBMI(athleteWeight, athleteHeight);
 		athleteMHR[i]=getAthleteMHR(athleteAge);
-		}
+		}//for loop end 
 		} //method end 
 	
 	//method to enter athlete names (called in user story 3).
@@ -118,14 +116,13 @@ public class ProjectIteration01
 		return athleteName;
 	}//end method 
 	
-	//method to calculate BMI (user story 4) (called in enterAthleteData method).
+	//method to calculate BMI (called in user story 4).
 	public static double getAthleteBMI(double athleteWeight, double athleteHeight) {
 		final double bmiConstant=703.00;
 		double athleteBMI=(bmiConstant*athleteWeight)/(athleteHeight*athleteHeight);
 		return athleteBMI;
 		}//end method 
-	
-	//method to calculate MHR (user story 5) (called in enterAthleteData method).
+	//method to calculate MHR (called in user story 5).
 	public static double getAthleteMHR(int athleteAge) {
 		final double mhrConstant=220;
 		double athleteMHR=mhrConstant-athleteAge;
@@ -133,7 +130,7 @@ public class ProjectIteration01
 		}//end method 
 	
 	//method to determine athlete category (called in user story 6).
-	public static void getBMICategory(double bmi) {
+	public static String getBMICategory(double bmi) {
 		String bmiCategory="Placeholder";
 		if (bmi >= 30.0){
 			bmiCategory = "High";
@@ -142,7 +139,7 @@ public class ProjectIteration01
 		} else {
 			bmiCategory = "Underweight";
 		} 
-		System.out.print("BMI category: " +bmiCategory);
+		return bmiCategory;
 	}//end method 
 	
 	//method to obtain BMI outliers (called in user story 7).
