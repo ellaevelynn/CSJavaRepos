@@ -5,31 +5,36 @@
 /**
  * 
  */
-public class DealershipDraft
-{//start class
+//for file writing
+import java.io.File;
+import java.io.IOException;
+
+public class DealershipTest
+{
 
 	public static void main(String[] args)
-	{//start main
-	//create a dealership with a limit of cars you can enter
-	Dealership myShop= new Dealership("Isabella's Autos", 3);
-	//create a car (hard-coding for test cases)
-	myShop.addCar(new Car ("Toyota", "Prius", 20000.00));
-	myShop.addCar(new Car ("Ford", "Mustang", 50000.00));
-	myShop.addCar(new Car ("BMW", "roadster", 21000.00));
+	{
+		//main method//
+		//create a dealership with a limit of cars you can enter
+		Dealership myShop= new Dealership("Isabella's Autos", 3);
+		//create a car (hard-coding for test cases)
+		myShop.addCar(new Car ("Toyota", "Prius", 20000.00));
+		myShop.addCar(new Car ("Ford", "Mustang", 50000.00));
+		myShop.addCar(new Car ("BMW", "roadster", 21000.00));
 
-	//display everything in your dealership
-		myShop.displayAllCars();
-		
-	//find most expensive car 
-		Car expensive=myShop.findMostExpensive();
-		System.out.println("Most expensive car: "+expensive.make+ " " +expensive.model+" "+expensive.price);
-	//write to file
+		//display everything in your dealership
+			myShop.displayAllCars();
+			
+		//find most expensive car 
+			Car expensive=myShop.findMostExpensive();
+			System.out.println("Most expensive car: "+expensive.make+ " " +expensive.model+" "+expensive.price);
+		//write to file
 
-}//end main method 
-}//end class
+	}
 
-/**new class:car**/
-class Car{//start car class
+}
+/**new class: Car**/
+class Car{
 //initializing (attribute variables)
 String make;
 String model;
@@ -40,7 +45,7 @@ Car(String make, String model, double price){
 this.make=make;
 this.model=model;
 this.price=price;
-}//end Car constructor
+}
 //getters: they get the value so that other classes can see them 
 String getMake() {
 	return make;
@@ -59,23 +64,23 @@ void displayCarDetails() {
 }//end method 
 }//end car class
 
+
 /**new class: Dealership**/
 class Dealership{
-	//initializing 
 	String name;
 	Car[] inventory;
-	int carCount;
-	//constructing dealership
+	int currentNumberCars;
+	
 	Dealership(String name, int maxCapacity){
 		this.name=name; //dealership name
 		this.inventory= new Car[maxCapacity]; //storing the size of array as length of capacity
-		this.carCount=0;//starting empty when program starts
+		this.currentNumberCars=0;//starting empty when program starts
 	}
 void addCar(Car newCar) {
 	//check if the array is already filled 
-	if(carCount<inventory.length) {
-		inventory[carCount]=newCar;
-		carCount++;
+	if(currentNumberCars<inventory.length) {
+		inventory[currentNumberCars]=newCar;
+		currentNumberCars++;
 		System.out.println(newCar.getMake()+ " added to "+name);
 	}
 	else {
@@ -84,11 +89,10 @@ void addCar(Car newCar) {
 }
 void displayAllCars() {
 	System.out.println(name +" Inventory");
-	for (int i=0; i<carCount; i++) {
+	for (int i=0; i<currentNumberCars; i++) {
 		inventory[i].displayCarDetails();
 	}
 }
-
 Car findMostExpensive() {
 	Car top=inventory[0];
 	for(int i=1; i< carCount; i++) {
@@ -98,10 +102,7 @@ Car findMostExpensive() {
 	}
 	return top;
 }
-}//end dealership class
-
-
-
-
-
+}
+void writeCarsToFile() {
+}
 
