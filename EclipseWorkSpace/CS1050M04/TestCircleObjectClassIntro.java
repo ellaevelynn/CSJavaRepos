@@ -40,7 +40,12 @@ class SimpleCircle
 		radius = 1;
 		numberOfObjects++;
 	}
-
+	public circle2(double radius)
+	{
+		radius = this.radius;
+		
+	}
+	
 	// fix the code below.
 	public SimpleCircle(double radius)
 	{
@@ -73,5 +78,5 @@ class SimpleCircle
 	{
 		return shape;
 	}
-
+	
 }

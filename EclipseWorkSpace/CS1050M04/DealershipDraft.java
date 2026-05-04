@@ -1,107 +1,156 @@
-/**
- * 
- */
+import java.io.*;
+import java.util.Scanner;
 
 /**
- * 
+ * Main Test Class for the Dealership System
  */
-public class DealershipDraft
-{//start class
+public class DealershipDraft {
 
-	public static void main(String[] args)
-	{//start main
-	//create a dealership with a limit of cars you can enter
-	Dealership myShop= new Dealership("Isabella's Autos", 3);
-	//create a car (hard-coding for test cases)
-	myShop.addCar(new Car ("Toyota", "Prius", 20000.00));
-	myShop.addCar(new Car ("Ford", "Mustang", 50000.00));
-	myShop.addCar(new Car ("BMW", "roadster", 21000.00));
+    public static void main(String[] args) {
+        displayProgramSummary();
 
-	//display everything in your dealership
-		myShop.displayAllCars();
-		
-	//find most expensive car 
-		Car expensive=myShop.findMostExpensive();
-		System.out.println("Most expensive car: "+expensive.make+ " " +expensive.model+" "+expensive.price);
-	//write to file
+        // User Story 1: Create a dealership
+        Dealership myShop = new Dealership("Isabella's Autos", 5);
 
-}//end main method 
-}//end class
+        // User Story 6: Read car inventory from a file
+        // Note: Make sure "inventory.txt" exists or handles the error
+        dealershipSetUp("inventory.txt", myShop);
 
-/**new class:car**/
-class Car{//start car class
-//initializing (attribute variables)
-String make;
-String model;
-Double price;
+        // User Story 2: Add a car manually (Testing)
+        myShop.addCar(new Car("Toyota", "Prius", 20000.00));
+        myShop.addCar(new Car("Ford", "Mustang", 50000.00));
 
-/** construct an entry for a car (constructor used to initialize the attributes**/
-Car(String make, String model, double price){
-this.make=make;
-this.model=model;
-this.price=price;
-}//end Car constructor
-//getters: they get the value so that other classes can see them 
-String getMake() {
-	return make;
+        // User Story 3: Display all cars
+        myShop.displayCars();
+
+        // User Story 4: Find most expensive car
+        Car expensive = myShop.findMostExpensiveCar();
+        if (expensive != null) {
+            System.out.println("\n--- Featured Vehicle ---");
+            System.out.println("Most Expensive: " + expensive.getMake() + " " + expensive.getModel() 
+                                + " ($" + expensive.getPrice() + ")");
+        }
+
+        // User Story 5: Write inventory to a file
+        myShop.writeCarsToFile("summary.txt");
+    }
+
+    /**
+     * Reads data from a file and populates the dealership
+     */
+    public static void dealershipSetUp(String fileName, Dealership newDealership) {
+        File file = new File(fileName);
+        if (!file.exists()) {
+            System.out.println("Input file not found. Starting with empty inventory.");
+            return;
+        }
+
+        try (Scanner fileReader = new Scanner(file)) {
+            while (fileReader.hasNextLine()) {
+                String line = fileReader.nextLine();
+                String[] data = line.split(","); // Assuming CSV format: Make,Model,Price
+                if (data.length == 3) {
+                    String make = data[0].trim();
+                    String model = data[1].trim();
+                    double price = Double.parseDouble(data[2].trim());
+                    newDealership.addCar(new Car(make, model, price));
+                }
+            }
+            System.out.println("Inventory loaded successfully from " + fileName);
+        } catch (FileNotFoundException e) {
+            System.out.println("Error reading file: " + e.getMessage());
+        } catch (NumberFormatException e) {
+            System.out.println("Error parsing price data in file.");
+        }
+    }
+
+    public static void displayProgramSummary() {
+        System.out.println("******************************************");
+        System.out.println("   Dealership Management System v1.0");
+        System.out.println("******************************************");
+    }
 }
 
-String getModel() {
-	return model;
+/**
+ * Car Class
+ */
+class Car {
+    private String make;
+    private String model;
+    private double price;
+
+    public Car(String make, String model, double price) {
+        this.make = make;
+        this.model = model;
+        this.price = price;
+    }
+
+    public String getMake() { return make; }
+    public String getModel() { return model; }
+    public double getPrice() { return price; }
+
+    public void displayCarDetails() {
+        System.out.printf("Make: %-10s | Model: %-10s | Price: $%,.2f%n", make, model, price);
+    }
 }
 
-double getPrice() {
-	return price;
+/**
+ * Dealership Class
+ */
+class Dealership {
+    private String name;
+    private Car[] cars;
+    private int currentNumberCars;
+
+    public Dealership(String name, int maxNumCars) {
+        this.name = name;
+        this.cars = new Car[maxNumCars];
+        this.currentNumberCars = 0;
+    }
+
+    public String getDealershipName() {
+        return name;
+    }
+
+    public void addCar(Car newCar) {
+        if (currentNumberCars < cars.length) {
+            cars[currentNumberCars] = newCar;
+            currentNumberCars++;
+        } else {
+            System.out.println("Inventory Full! Cannot add: " + newCar.getMake());
+        }
+    }
+
+    public Car findMostExpensiveCar() {
+        if (currentNumberCars == 0) return null;
+        
+        Car top = cars[0];
+        for (int i = 1; i < currentNumberCars; i++) {
+            if (cars[i].getPrice() > top.getPrice()) {
+                top = cars[i];
+            }
+        }
+        return top;
+    }
+
+    public void displayCars() {
+        System.out.println("\n--- " + name + " Inventory ---");
+        for (int i = 0; i < currentNumberCars; i++) {
+            cars[i].displayCarDetails();
+        }
+    }
+
+    public void writeCarsToFile(String filename) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(filename))) {
+            writer.println("Dealership: " + name);
+            writer.println("------------------------------");
+            for (int i = 0; i < currentNumberCars; i++) {
+                Car c = cars[i];
+                writer.println(c.getMake() + "," + c.getModel() + "," + c.getPrice());
+            }
+            System.out.println("\nInventory summary saved to " + filename);
+        } catch (IOException e) {
+            System.out.println("Error writing to file: " + e.getMessage());
+        }
+    }
 }
-//method to display the test car details
-void displayCarDetails() {
-	System.out.println( "Make: "+ make +", Model: "+model+", Price:"+ price);
-}//end method 
-}//end car class
-
-/**new class: Dealership**/
-class Dealership{
-	//initializing 
-	String name;
-	Car[] inventory;
-	int carCount;
-	//constructing dealership
-	Dealership(String name, int maxCapacity){
-		this.name=name; //dealership name
-		this.inventory= new Car[maxCapacity]; //storing the size of array as length of capacity
-		this.carCount=0;//starting empty when program starts
-	}
-void addCar(Car newCar) {
-	//check if the array is already filled 
-	if(carCount<inventory.length) {
-		inventory[carCount]=newCar;
-		carCount++;
-		System.out.println(newCar.getMake()+ " added to "+name);
-	}
-	else {
-		System.out.println("Error: the dealership is full!");
-	}
-}
-void displayAllCars() {
-	System.out.println(name +" Inventory");
-	for (int i=0; i<carCount; i++) {
-		inventory[i].displayCarDetails();
-	}
-}
-
-Car findMostExpensive() {
-	Car top=inventory[0];
-	for(int i=1; i< carCount; i++) {
-		if (inventory[i].price>top.price) {
-			top=inventory[i];
-		}
-	}
-	return top;
-}
-}//end dealership class
-
-
-
-
-
-

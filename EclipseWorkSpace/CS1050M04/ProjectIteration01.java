@@ -11,7 +11,7 @@ public class ProjectIteration01
 
 	public static void main(String[] args)
 	{//start main
-	java.util.Scanner userInput = new java.util.Scanner(System.in);
+	java.util.Scanner userInput = new java.util.Scanner(System.in); //import class instead
 	//declaring arrays that will be needed later in the program
 		String athleteFirstNames[];
 		double athleteBMI[];
@@ -33,7 +33,7 @@ public class ProjectIteration01
 		//User story 4: calculate BMI (method created and called in getStatsmethod)
 		//User story 5: Calculate MHR (method created and called within getStats method)
 		
-	//User story 6: display athlete BMI value, category, and MHR.
+	//User story 6: display athlete BMI value, category, and MHR.// should be a method instead
 		System.out.println("Team Summary");
 	for (int i=0; i<athleteCount;i++) {
 		System.out.println(athleteFirstNames[i]);
@@ -144,7 +144,7 @@ public class ProjectIteration01
 		System.out.println("BMI category: " +bmiCategory);
 	}//end method 
 	
-	//method to obtain BMI outliers (called in user story 7).
+	//method to obtain BMI outliers (called in user story 7).// could improve to use only one loop
 	public static void getBMIOutliers(int athleteCount,double athleteBMI[], String athleteFirstNames[]) {
 		final double minNormalBMI=18.50;
 		final double maxNormalBMI=29.9;
@@ -181,7 +181,7 @@ public class ProjectIteration01
 	    sumMHR= sumMHR+athleteMHR[index];
 	    }// end for loop
 	double calculatedAverage=sumMHR/athleteCount;
-	System.out.println(questionPrompt + calculatedAverage);
+	System.out.println(questionPrompt + calculatedAverage);// should return the value
 	}//end method 
 	
 	// method to identify the location of a maximum value, then display the maximum value and the athlete associated (user story 9)
@@ -196,7 +196,7 @@ public class ProjectIteration01
 		}
 		System.out.println(athleteFirstNames[maxIndex]+questionPrompt+maxValue);
 	showAboveOrEqual(athleteCount, maxValue, athleteMHR, athleteFirstNames, "\nAthletes above or equal to MHR: ");
-	}//end method
+	}//end method// should have a seperate method and call the method and then return the max index.
 	
 	//method to list athletes above or equal to a value (user story 10)
 	public static void showAboveOrEqual(int athleteCount, double maxValue,double athleteMHR[], String athleteFirstNames[], String questionPrompt) {
