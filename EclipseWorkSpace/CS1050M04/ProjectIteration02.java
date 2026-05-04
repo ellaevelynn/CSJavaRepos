@@ -20,6 +20,7 @@ public class ProjectIteration02
 		displayProgramSummary();
 
 		// ===== TEST 1 =====
+		//using test1.txt document created from team2.txt outline
 		String fileName = "team1.txt";
 
 		try
@@ -119,7 +120,7 @@ public class ProjectIteration02
 
 	}
 
-	// ================= DISPLAY =================
+	// ================= DISPLAY PROGRAM OVERVIEW =================
 /**
  * Provides an overview of the program tasks and in which order they will run.
  */
@@ -135,7 +136,7 @@ public class ProjectIteration02
 	}
 }//end public class
 
-// ================= ADD ATHLETE CLASS =================
+// ================= ATHLETE CLASS =================
 
 class Athlete
 {
@@ -235,6 +236,7 @@ class Athlete
 		System.out.printf("BMI: %.1f%n", calculateBMI());
 		System.out.println("Category: "+determineBMICategory());
 		System.out.println("MHR: "+calculateMaxHeartRate());
+		System.out.println("\n       ");
 	}
 }
 
@@ -308,11 +310,11 @@ class Team
 			String category=athletes[i].determineBMICategory();
 			if(category.equals("High"))
 			{
-				System.out.println("Above normal: "+athletes[i].getName());
+				System.out.println("\nAbove normal: "+athletes[i].getName());
 			}
 			else if (category.equals("Underweight"))
 				{
-				System.out.println("Below normal: " +athletes[i].getName());
+				System.out.println("\nBelow normal: " +athletes[i].getName());
 				}
 		}
 	}
@@ -401,19 +403,23 @@ class Team
 	 */
 	public void writeAthletesToFile(String fileName)
 	{
+		//specifies file name and where to store file
 		File outputFile= new File(fileName);
 		try
 		{
 			PrintWriter writer= new PrintWriter(outputFile);
+			//create file header
 			writer.println("Team: "+ teamName);
 			writer.println("Total athletes: "+ athleteCount);
+			//loops through athlete data and writes result into txt file
 			for (int i=0; i<athleteCount;i++)
 			{
 				writer.println(athletes[i].getName());
-				writer.printf("BMI: %.2f%n", athletes[i].calculateBMI());
+				writer.printf("\nBMI: %.2f%n", athletes[i].calculateBMI());
 				writer.println("Category: " + athletes[i].determineBMICategory());
 				writer.println("MHR: " + athletes[i].calculateMaxHeartRate() + "\n");
 			}
+			//completes writing process to save to file
 			writer.close();
 			System.out.println("\nResults written to file: " + outputFile.getAbsolutePath());
 		}
