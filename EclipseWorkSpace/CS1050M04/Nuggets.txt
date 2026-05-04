@@ -1,0 +1,27 @@
+Team: Nuggets
+Total athletes: 5
+Isabella
+BMI: 48.06
+Category: High
+MHR: 199
+
+Jacob
+BMI: 34.99
+Category: High
+MHR: 193
+
+Daniel
+BMI: 30.13
+Category: High
+MHR: 185
+
+Maciel
+BMI: 21.70
+Category: Normal
+MHR: 195
+
+Michael
+BMI: 50.62
+Category: High
+MHR: 171
+
