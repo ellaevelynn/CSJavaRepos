@@ -6,9 +6,11 @@ import java.util.Scanner;
 /*
  * Isabella Eaton
  * CS1050-004 (T/TH)
- * Project iteration 02- implement classes
- * Program description:the program reads athlete statistics from a txt file, calculates fitness metrics 
- * (BMI, MHR), and performs a comprehensive team analysis and returns these results.
+ * Project title: Project iteration 02- implement classes
+ * Program description: the program reads athlete data from a txt file, then calculates fitness metrics 
+ * (BMI and MHR). Lastly the program performs a team analysis 
+ * (athletes outside of BMI ranges, average max heart rates, listing athletes above and below average max heart rate, finding smallest and largest heights)
+ *  and returns these results to the output console.
  */
 
 //================= PUBLIC CLASS =================
@@ -69,7 +71,8 @@ public class ProjectIteration02
 		File inputFile= new File(fileName);
 		
 		Scanner fileScanner= new Scanner(inputFile);
-				
+				//continues reading until data of file runs out.
+				//used instead of for loop b/c of how athlete counts is stored and generated.
 				while(fileScanner.hasNext()) 
 				{
 					String name=fileScanner.next();
