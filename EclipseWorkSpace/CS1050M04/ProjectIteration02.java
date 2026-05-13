@@ -28,7 +28,7 @@ public class ProjectIteration02
 		try
 		{
 			System.out.println("\nTesting file: " + fileName);
-			Team team = new Team("Nuggets", 6);
+			Team team = new Team("FINAL", 3);
 			
 			teamSetUp(fileName, team);
 			runAnalysis(team);
