@@ -1,9 +1,9 @@
 /**
- * Isabella Eaton
+ * Eaton, Isabella
  * CS2
  * Assignment 2: Task 1
  * 
- * METHOD ANALYSIS: occurrences()
+ * METHOD BEING ANALYZED: occurrences()
  * 
  * What the method does:
  * This method counts how many elements currently stored within the linked list 
@@ -11,30 +11,28 @@
  * 'Sedan' or 'SUV' objects exist in a list of Vehicles).
  * 
  * What the parameters represent:
- * @param type A Class object utilizing an unbounded wildcard (Class<?>). 
- *             It represents the specific data type or class structure 
+ * @param type represents the specific data type or class structure 
  *             the method is searching for and comparing against.
  * 
  * How the loop traverses the list:
- * The method initializes a pointer variable, 'currentNode', pointing to the 
- * 'firstNode' of the linked chain. It utilizes a sequential 'while' loop that 
- * executes as long as 'currentNode' is not null. Inside the loop body, after 
- * evaluating the data, the statement 'currentNode = currentNode.getNextNode();' 
- * updates the pointer to point to the subsequent node, systematically walking 
- * through every entry in the list from head to tail.
+ * The method initializes a pointer variable, (currentNode), pointing to the 
+ * (firstNode) of the linked chain. It uses a sequential while loop that 
+ * executes as long as currentNode is not null. Inside the loop body, after 
+ * evaluating the data, the command currentNode = currentNode.getNextNode();
+ * updates the pointer to point to the following node, which essentially walks
+ * through every entry in the list from start to end.
  * 
  * How the method determines whether an item matches the requested type:
- * It utilizes the Java Reflection API method 'type.isInstance(...)'. 
- * For every node, it extracts the data payload via 'currentNode.getData()' and 
- * passes it into 'isInstance()'. This built-in Java tool dynamically checks if 
- * the target object can be safely cast to the requested 'type'. Because it 
- * respects inheritance (polymorphic design), it will return true if the object 
- * is an exact match OR a subclass of the specified type.
+ * It uses the method type.isInstance(). 
+ * For every node, it extracts the data stored via currentNode.getData() and 
+ * passes it through isInstance() to validate if the target object can be safely cast to the requested
+ *  type. Because it  respects inheritance (following poly morphic design), it will return true if the object 
+ * is either an exact match or a subclass of the specified type.
  * 
  * What value the method returns:
  * @return An integer representing the total count of matching objects found 
- *         during the traversal. If the list is empty or contains no elements 
- *         matching the criteria, it returns 0.
+ *         during the traversal of the list. If the list is empty or contains no elements 
+ *         matching the criteria, it returns 0 as nothing was counted or stored.
  */
 public class LList<T> implements ListInterface<T>
 {
