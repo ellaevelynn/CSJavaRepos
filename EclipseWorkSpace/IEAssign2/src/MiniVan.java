@@ -1,4 +1,4 @@
-
+//Eaton,Isabella- Assign2
 public class MiniVan extends Vehicle{
 	
 	public MiniVan(String make, String model, String color, String id, int year, double price) {

@@ -1,4 +1,4 @@
-
+//Eaton,Isabella- Assign2
 public class Sedan extends Vehicle{
 	
 	public Sedan(String make, String model, String color, String id, int year, double price) {

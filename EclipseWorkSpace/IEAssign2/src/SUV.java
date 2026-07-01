@@ -1,4 +1,4 @@
-
+//Eaton,Isabella- Assign2
 public class SUV extends Vehicle{
 	
 	public SUV(String make, String model, String color, String id, int year, double price) {
