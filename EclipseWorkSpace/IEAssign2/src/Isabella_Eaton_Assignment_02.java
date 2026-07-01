@@ -32,9 +32,11 @@ public class Isabella_Eaton_Assignment_02 {
         System.out.println();
 
         // 3.3 Count vehicle types
+        //count occurrences for each type of vehicle stored in vehicleList
         int miniVanCount = vehicleList.occurrences(MiniVan.class);
         int sedanCount = vehicleList.occurrences(Sedan.class);
         int suvCount = vehicleList.occurrences(SUV.class);
+        //print counted vehicle types 
         System.out.println("MiniVan count: " + miniVanCount);
         System.out.println("Sedan count: " + sedanCount);
         System.out.println("SUV count: " + suvCount);
