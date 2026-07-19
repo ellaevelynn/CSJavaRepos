@@ -40,7 +40,13 @@ public final class MyLinkedStack<T> implements StackInterface<T>
  * traversing the stack nodes rather than removing or rearranging any elements.
  */
 	public int countItems() {
-        return 0;
+		int count=0;
+		Node currentNode=topNode;
+		while(currentNode!=null) {
+			count++;
+			currentNode=currentNode.getNextNode();
+		}
+        return count;
     }
 
 /****************************************************************************************
@@ -49,7 +55,10 @@ public final class MyLinkedStack<T> implements StackInterface<T>
  */
 	public T peekTwo()
 	{
-	   return null;
+		if(isEmpty()||topNode.getNextNode()==null) {
+			throw new EmptyStackException();
+		}
+	   return topNode.getNextNode().getData();
 	}	
 	
 /****************************************************************************************
@@ -58,7 +67,12 @@ public final class MyLinkedStack<T> implements StackInterface<T>
 */
 	public T directPop()
 	{
-	   return null;
+		if(isEmpty()) {
+			throw new EmptyStackException();
+		}
+		T topData=topNode.getData();
+		topNode=topNode.getNextNode();
+	   return topData;
 	} 	
 //***************************************************************************************
 	
