@@ -3,6 +3,7 @@
    @author Frank M. Carrano
    @author Timothy M. Henry
    @version 5.0
+   Isabella Eaton-Assignment3
 */
 public interface StackInterface<T>
 {

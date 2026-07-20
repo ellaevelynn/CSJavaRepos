@@ -1,4 +1,4 @@
-
+ //Isabella Eaton-Assignment3
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -106,10 +106,20 @@ public static String convertInfixToPostfix(String infix) {
 	return output.toString();
 	}
 
+
+/**
+ * Method:isOperator
+ * checks if char values are a valid mathematical operator.
+ */
 private static boolean isOperator (char ch) {
 	return ch=='+'||ch=='-'||ch=='*'||ch=='/'||ch=='^';
 }
 
+/**
+ * Method:getPrecedence
+ * assigns a weight to each mathematical operator to ensure they are included in
+ *  output file or postfix in the correct order.
+ */
 private static int getPrecedence(char operator) {
 	switch(operator) {
 	case'+':

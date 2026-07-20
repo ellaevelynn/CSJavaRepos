@@ -1,3 +1,5 @@
+
+// Isabella Eaton-Assignment3
 import java.util.EmptyStackException;
 
 public final class MyLinkedStack<T> implements StackInterface<T>
